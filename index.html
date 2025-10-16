@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computer Hardware Info</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f172a;
+      color: #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .circle-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      max-width: 900px;
+    }
+
+    .circle {
+      background: #1e293b;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+      overflow: hidden;
+    }
+
+    .circle:hover {
+      background: #334155;
+      transform: scale(1.05);
+    }
+
+    .circle img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    .circle span {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .circle.active {
+      width: 270px;
+      height: 270px;
+      border-radius: 20px;
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+      background: #1e293b;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    }
+
+    .circle.active img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .info {
+      margin-top: 1rem;
+      display: none;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      line-height: 1.4;
+    }
+
+    .circle.active .info {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .circle {
+        width: 100px;
+        height: 100px;
+      }
+      .circle.active {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💻 Computer Hardware Info 💻</h1>
+<h1>By: Group1 EAPP</h1>
+<h1> Gr/Sec: 11-css</h1>
+  <div class="circle-container">
+    <div class="circle" data-info="cpu">
+      <img src="cpu23.png" alt="CPU">
+      <span>CPU</span>
+      <div class="info">
+        <b>Intel Core i7-13700K</b><br>
+        16 Cores, 24 Threads<br>
+        Base Clock: 3.4GHz<br>
+        Max Turbo: 5.4GHz
+      </div>
+    </div>
+
+    <div class="circle" data-info="gpu">
+      <img src="gpu.png" alt="GPU">
+      <span>GPU</span>
+      <div class="info">
+        <b>NVIDIA RTX 4070</b><br>
+        12GB GDDR6X<br>
+        Boost Clock: 2.47GHz<br>
+        Ray Tracing + DLSS 3
+      </div>
+    </div>
+
+    <div class="circle" data-info="motherboard">
+      <img src="motherboard.png" alt="Motherboard">
+      <span>Motherboard</span>
+      <div class="info">
+        <b>ASUS ROG Strix B550-F</b><br>
+        Socket: AM4<br>
+        Chipset: B550<br>
+        Memory: DDR4 128GB Max
+      </div>
+    </div>
+
+    <div class="circle" data-info="ram">
+      <img src="ram.png" alt="RAM">
+      <span>RAM</span>
+      <div class="info">
+        <b>Corsair Vengeance LPX</b><br>
+        32GB DDR4<br>
+        Speed: 3600MHz<br>
+        Dual Channel
+      </div>
+    </div>
+
+    <div class="circle" data-info="storage">
+      <img src="storage.png" alt="Storage">
+      <span>Storage</span>
+      <div class="info">
+        <b>Samsung 980 PRO NVMe</b><br>
+        1TB SSD<br>
+        Read: 7000 MB/s<br>
+        Write: 5000 MB/s
+      </div>
+    </div>
+
+    <div class="circle" data-info="psu">
+      <img src="powersuply2.png" alt="PSU">
+      <span>PSU</span>
+      <div class="info">
+        <b>Seasonic Focus GX-750</b><br>
+        750W Gold Certified<br>
+        Fully Modular<br>
+        Silent Fan
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const circles = document.querySelectorAll('.circle');
+
+    circles.forEach(circle => {
+      circle.addEventListener('click', () => {
+        // Close others
+        circles.forEach(c => {
+          if (c !== circle) c.classList.remove('active');
+        });
+        // Toggle clicked one
+        circle.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
